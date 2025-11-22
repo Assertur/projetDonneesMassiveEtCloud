@@ -16,11 +16,11 @@ Pour cela j'ai d'abord peupler ma base en utilisant la commande :
 python ./massive-gcp/seed.py --users 1000 --posts 50000 --follows-min 20 --follows-max 20
 ```
 
-Une fois la base peuplé j'ai pu appliqué un petit script utilisant apach-bench, en remplaçant le x par le nombre d'utilisateur
+Une fois la base peuplé j'ai pu appliqué un petit script utilisant apach-bench, qui va envoyer une requête en concurrence 3 fois pour chaque nombre d'utilisateurs simultanés.
 ```
 #!/bin/bash
 
-URL="http://127.0.0.1:5000/api/timeline?user=user"  # adapte si HTTPS
+URL="http://127.0.0.1:5000/api/timeline?user=user"
 
 CONCURRENCIES=(1 10 20 50 100)
 REPEATS=3
@@ -33,7 +33,7 @@ for c in "${CONCURRENCIES[@]}"; do
 
     # fichier pour stocker les temps par utilisateur
     OUTFILE="results/concurrency_${c}_run${r}.txt"
-    > $OUTFILE  # vide le fichier
+    > $OUTFILE 
 
     # lancer pour chaque utilisateur distinct simultanément
     for u in $(seq 1 $c); do
