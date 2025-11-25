@@ -127,6 +127,7 @@ awk '{sum += $1} END {if (NR > 0) printf "%.2f ms\n", (sum/NR)*1000; else print 
 ```
 
 J'ai fait le graphique suivant pour rendre les résultats parlant :
+
 ![Graphique Analyse Post](./graphics/Temps%20par%20nombre%20de%20post.png)
 
 On peut voir qu'en moyenne ça ne change pas trop selon le nombre de post par user. Cependant le premier run est environ 2 fois plus long que les deux autres.
@@ -156,7 +157,9 @@ python ./massive-gcp/seed.py --users 100 --posts 10000 --follows-min 100 --follo
 J'ai ensuite lancer les requêtes via curl comme pour l'analyse par post, et calculé la moyenne de la même façon.
 
 J'ai reporté les données pour faire un graphique.
+
 ![Graphique Analyse Followee](./graphics/Temps%20par%20nombre%20de%20followee.png)
+
 On peut voir que le nombre de followee change radicalement le temps et que l'application ne scale donc pas dessus.
 
 ### 5. Conclusion
