@@ -128,6 +128,7 @@ awk '{sum += $1} END {if (NR > 0) printf "%.2f ms\n", (sum/NR)*1000; else print 
 
 J'ai fait le graphique suivant pour rendre les résultats parlant :
 ![Graphique Analyse Post](./graphics/Temps%20par%20nombre%20de%20post.png)
+
 On peut voir qu'en moyenne ça ne change pas trop selon le nombre de post par user. Cependant le premier run est environ 2 fois plus long que les deux autres.
 
 ### 4. Analyse nombre de followee par utilisateur
