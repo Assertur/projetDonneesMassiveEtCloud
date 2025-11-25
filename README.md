@@ -125,7 +125,7 @@ J'ai ensuite calculé la moyenne avec la commande suivante :
 ```
 awk '{sum += $1} END {if (NR > 0) printf "%.2f ms\n", (sum/NR)*1000; else print "no data"}' results/post_10_run1.txt
 ```
-
+Cependant j'avais un énorme écart entre le premier run et les 2 suivants (ex : run1 2500ms et run2 800ms). J'ai donc décidé de faire 4 run et de comptabiliser que les trois dernières pour les résultats suivants.
 J'ai fait le graphique suivant pour rendre les résultats parlant :
 
 ![Graphique Analyse Post](./graphics/Temps%20par%20nombre%20de%20post.png)
